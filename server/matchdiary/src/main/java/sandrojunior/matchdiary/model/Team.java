@@ -9,8 +9,8 @@ import lombok.Setter;
 
 import javax.naming.Name;
 
-@Table(Name = "team")
-@Entity(Name = "team")
+@Table(name = "team")
+@Entity(name = "team")
 @Getter
 @Setter
 @NoArgsConstructor

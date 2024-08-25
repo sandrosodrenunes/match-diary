@@ -6,9 +6,10 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import javax.naming.Name;
+import java.util.Date;
 
-@Table(Name = "team")
-@Entity(Name = "team")
+@Table(name = "match")
+@Entity(name = "match")
 @Getter
 @Setter
 @NoArgsConstructor
@@ -17,24 +18,24 @@ public class Match {
   @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
   @Column(name = "date")
-  private Data date;
+  private Date date;
   @Column(name = "score_team_one")
   private Integer scoreTeamOne;
   @Column(name = "score_team_two")
   private Integer scoreTeamTwo;
 
-  @ManyToMany
+  @ManyToOne
   @JsonManagedReference
   @JoinColumn(name = "team_one_id")
   private Team teamOne;
 
-  @ManyToMany
+  @ManyToOne
   @JsonManagedReference
   @JoinColumn(name = "team_two_id")
   private Team teamTwo;
 
-  @ManyToMany
+  @ManyToOne
   @JsonManagedReference
-  @JoinColumn(name = "team_supportedTeam_id")
+  @JoinColumn(name = "team_supported_id")
   private Team supportedTeam;
 }
